@@ -154,6 +154,10 @@ upper_bound &lt;-<span class="st"> </span><span class="kw">quantile</span>(ро�
 <div id="----" class="section level1">
 <h1>3. Чем отличаются котики от пёсиков</h1>
 <p>Меры различий для несвязанных выборок</p>
+<div id="---" class="section level2">
+<h2>Различия между типичными представителями</h2>
+<div id="t--" class="section level3">
+<h3>t-Критерий Стьюдента</h3>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">рост_котиков &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">20</span>, <span class="dv">20</span>, <span class="dv">23</span>, <span class="dv">23</span>, <span class="dv">24</span>, <span class="dv">25</span>, <span class="dv">25</span>)
 рост_песиков &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">15</span>, <span class="dv">20</span>, <span class="dv">32</span>, <span class="dv">42</span>, <span class="dv">51</span>, <span class="dv">58</span>, <span class="dv">63</span>, <span class="dv">110</span>)
 
@@ -165,6 +169,7 @@ t_value &lt;-<span class="st"> </span>mean_difference <span class="op">/</span><
 <li>Стандартная ошибка: 10.6676116</li>
 <li>Значение t-критерия Стьюдента: -2.438958</li>
 </ul>
+<p>Так как формула строится на средних, то она чувствительна к выбросам.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># t-критерий Стьюдента для несвязанных выборок </span>
 <span class="kw">t.test</span>(рост_котиков, рост_песиков)</code></pre></div>
 <pre><code>## 
@@ -178,6 +183,10 @@ t_value &lt;-<span class="st"> </span>mean_difference <span class="op">/</span><
 ## sample estimates:
 ## mean of x mean of y 
 ##  22.85714  48.87500</code></pre>
+</div>
+</div>
+<div id="u---" class="section level2">
+<h2>U-критерий Манна-Уитни</h2>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">wilcox.test</span>(рост_котиков, рост_песиков)</code></pre></div>
 <pre><code>## Warning in wilcox.test.default(рост_котиков, рост_песиков): cannot compute
 ## exact p-value with ties</code></pre>
@@ -187,6 +196,10 @@ t_value &lt;-<span class="st"> </span>mean_difference <span class="op">/</span><
 ## data:  рост_котиков and рост_песиков
 ## W = 13, p-value = 0.09158
 ## alternative hypothesis: true location shift is not equal to 0</code></pre>
+</div>
+<div id="----" class="section level2">
+<h2>Различия по разнообразию типичных представителей</h2>
+</div>
 </div>
 </section>
 
